@@ -1,0 +1,191 @@
+/* Resets Básicos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #050508;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fundo 3D Abstrato */
+.background-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.6;
+}
+
+/* Objetos 3D Azuis e Laranjas */
+.sphere-1 {
+  width: 280px;
+  height: 280px;
+  top: 5%;
+  left: -50px;
+  background: radial-gradient(circle at 30% 30%, #00d2ff, #004080 70%, #001020);
+  box-shadow: inset -10px -10px 30px rgba(0,0,0,0.8), 0 0 50px rgba(0, 210, 255, 0.4);
+}
+
+.sphere-2 {
+  width: 350px;
+  height: 350px;
+  bottom: -50px;
+  right: -50px;
+  background: radial-gradient(circle at 30% 30%, #ff9900, #b33600 70%, #330d00);
+  box-shadow: inset -10px -10px 30px rgba(0,0,0,0.8), 0 0 60px rgba(255, 153, 0, 0.4);
+}
+
+.torus-1 {
+  width: 200px;
+  height: 200px;
+  top: 45%;
+  right: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 40%, #0088ff 70%, #ff5500 100%);
+  filter: blur(15px);
+}
+
+.oval-1 {
+  width: 400px;
+  height: 180px;
+  top: 15%;
+  right: 20%;
+  transform: rotate(-35deg);
+  background: radial-gradient(ellipse at center, rgba(255,102,0,0.5), rgba(0,102,255,0.2) 70%, transparent);
+}
+
+.oval-2 {
+  width: 300px;
+  height: 140px;
+  bottom: 15%;
+  left: 10%;
+  transform: rotate(25deg);
+  background: radial-gradient(ellipse at center, rgba(0,153,255,0.5), rgba(255,85,0,0.2) 70%, transparent);
+}
+
+/* Containers e Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00d2ff, #ff7300);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #a0a0b0;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Grid de Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  perspective: 1000px;
+}
+
+/* Estilo do Card */
+.card {
+  background: rgba(18, 18, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  font-size: 0.95rem;
+  color: #cccccc;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.card ul li strong {
+  color: #ff9900;
+}
+
+/* Efeito Modal / Destaque (Hover no Card) */
+.card:hover {
+  transform: scale(1.08) translateZ(30px);
+  z-index: 100;
+  background: rgba(25, 25, 35, 0.95);
+  border-color: #00d2ff;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.9),
+    0 0 25px rgba(0, 210, 255, 0.4),
+    0 0 15px rgba(255, 115, 0, 0.3);
+}
+
+.card:hover h2 {
+  color: #00d2ff;
+  border-bottom-color: #ff7300;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }
+}
